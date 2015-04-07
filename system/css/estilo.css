@@ -1,0 +1,278 @@
+@CHARSET "UTF-8";
+/*
+	-----------------------------------------------------------------------
+		Hoja de Estilo CSS
+		Desarrollado Por: Carlos Peña
+		Cuando defino (*) en el Style llamo a todos los eventos de la páginas
+		Reglas generales
+		Version: 2.0.0
+	------------------------------------------------------------------------
+	*/
+
+.estilochat {
+	width: auto;
+	font: 70% "Trebuchet MS", Arial, Helvetica, sans-serif;
+	
+}
+.estilochat ul, li {
+	list-style-type: none;
+}
+.estilochat li {
+	list-style-image: url('/system/img/usuariochat.png');
+  list-style-type: square;
+	left:0px;
+}
+.estilochat a {
+	position: relative;
+	text-decoration: none;
+	color: #3366CC;
+	background: transparent;
+	display: block;
+}
+
+.estilochat a div {
+	display: none;
+	width : auto;
+	position:fixed; 
+	border: 2px solid #dfd9c3;
+    background-image:-moz-linear-gradient(top, #f5f3e5, #ffffff);*
+    opacity:0.95;
+    -webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;	
+}
+.estilochat a:hover div {
+	display: block;
+	z-index:20;
+	top:300px;
+    left: 165px; 
+}
+.estilochat li:hover{
+	list-style-image: url('/system/img/usuariochat2.png');
+   list-style-type: square;
+}
+.estilochat a:hover {
+	color: green;
+	background: #E2ECEE;  
+}
+* {
+	margin: 0;
+	padding: 0;
+	clear: none;
+	float: none;
+	height: auto;
+	width: auto;
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+body {
+	font: 80.5% "Trebuchet MS", sans-serif;
+	color: #333333;
+	border-radius: 5px;
+	font-size: 11px;
+	font-family: Arial, Trebuchet MS, Tahoma, Verdana, sans-serif; 
+	line-height: normal;
+}
+
+.focus {
+	outline: 0;
+}
+
+img,a {
+	border: none;
+	color: #996633;
+	font-family: Arial, verdana, sans-serif;
+	font-size: 11px;
+	line-height: normal;	
+}
+
+input, select, textarea{
+	background-color:#fafaf4; 
+	color: #815528;
+	font-size: 12px;
+	font-family: Trebuchet MS, Tahoma, Verdana, sans-serif; 
+	line-height: normal;
+	font-weight: normal;
+	border-bottom: none;
+	border: 1px solid #D4D4D4;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	height: 22px;
+}
+
+button{
+	height: 27px;
+}
+
+p,table,tr, td {
+	color: #000;
+	font-size: 12px;
+	font-family: Trebuchet MS, Tahoma, Verdana, sans-serif;
+	border-bottom: none;	
+}
+
+h1 {
+	font-size: 20px;
+	line-height: normal;
+	font-weight: bold;
+	color: #815528;
+	border-bottom: none;
+	padding: 0px;
+}
+
+h2 {
+	
+	color: #815528;
+	letter-spacing: .1em;
+	font-size: 1.5em;
+	font-weight: bold;
+	line-height: 20px;
+	border-bottom:1px solid  #ccc;
+	text-shadow: 1px 1px 2px #999;
+	text-transform: uppercase;
+
+}
+h3 {
+	color: #999;
+	letter-spacing: .2em;
+	text-transform: uppercase;
+	font-size: .9em;
+	font-weight: bold;
+	text-shadow: 1px 1px 2px #999;
+	line-height: .8px;
+}
+
+h4 {
+	color: #815528;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	font-size: .9em;
+	font-weight: bold;
+	line-height: 18px;
+	text-shadow: 1px 1px 2px #999;
+}
+h5 {
+	
+	color: #815528;
+	letter-spacing: .1em;
+	font-size: 0.8em;
+	font-weight: bold;
+	line-height: 15px;
+	border-bottom:1px solid  #ccc;
+	text-shadow: 1px 1px 2px #999;
+	text-transform: uppercase;
+
+}
+/*
+--------------------------------------------------------
+	Reglas para los DIV que controlan el ambiente general
+--------------------------------------------------------
+*/
+#cabezera {
+	background-color:#FFFFFF;
+	text-align: left;
+	width: 100%;
+	border-left: 0px;
+	border-right: 0px;
+	position:fixed;
+	z-index: 1;
+	
+}
+
+#lateral_i{
+	background-image: url('/system/img/fondo.png');
+	background-color:#FFFACD;
+	float:left;
+	height: 1200px;
+	width: 160px;
+	border: 1px  solid #d5d5d5;
+	border-top: 0px;
+	border-left: 0px;
+	position:fixed;
+	font-family: Trebuchet MS, Tahoma, Verdana, sans-serif;
+	box-shadow: 2px 2px 5px #999;
+   -webkit-box-shadow: 2px 2px 5px #999;
+   -moz-box-shadow: 2px 2px 5px #999;
+  top:45px;
+}
+#medio {
+	top:45px;
+	left: 185px;
+	position: absolute;
+	overflow: auto;
+	background-color: transparent;
+	text-align: left;
+	width: 85%;
+	padding-top: 5px;
+		
+}
+#BrBuscar{
+	background-color: #e0e0e0; 
+	width: 100%; 	
+	height: 30px; 
+	border: 1px solid; 
+	border-color: #d5d5d5;
+	padding:5px; 
+	border-bottom:0px;
+	box-shadow: 2px 2px 5px #999;
+  -webkit-box-shadow: 2px 2px 5px #999;
+  -moz-box-shadow: 2px 2px 5px #999;
+}
+
+
+#lateral_d{
+	float:right;
+	height: 100%; 
+	background-color: #e0e0e0; 
+	width: 150px;
+	border: 1px  solid #fbcb09;
+	border-top: 0px;
+	border-right: 0px;	
+}
+
+#botones{
+	padding:15px; 	
+}
+
+
+
+/*
+	--------------------------------------------------------
+		Login de Usuario
+	--------------------------------------------------------
+	*/
+div#Login {
+	position: absolute;
+	text-align: center;
+	width: 96px;
+	height: 94px;
+	overflow: hidden;
+	left: 904px;
+	top: 264px;
+}
+
+div#buscar {
+	right: 0px;
+	position: absolute;
+}
+
+input.field {	
+	font: 11px Currier, Verdana, Arial, sans-serif;
+	color: #0a7285;
+}
+input.submit {
+	font: 10px Currier, Verdana, Arial, sans-serif;
+	color: #0a7285;
+}
+
+
+

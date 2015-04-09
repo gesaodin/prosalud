@@ -72,7 +72,9 @@ function Consultar() {
 				$("#txtafiliados").find('option').remove().end();
 
 				$.each(json['dependiente'], function(item, valor) {
-					$("#txtafiliados").append(new Option('V- ' + valor['cedula'] + ' ' + valor['nombre'] + ' ( ' + valor['parentesco'] + ' )', valor['cedula']));
+					estatus = "Activo";
+					if(valor['estatus']==0){ estatus="Inactivo";}
+					$("#txtafiliados").append(new Option('V- ' + valor['cedula'] + ' ' + valor['nombre'] + ' ( ' + valor['parentesco'] + ' )'  + estatus, valor['cedula']));
 				});
 				$("#txtafiliados").append(new Option('----------', '----------'));
 				$("#txtdependede").find('option').remove().end();

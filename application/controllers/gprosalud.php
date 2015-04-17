@@ -291,7 +291,7 @@ class GProsalud extends CI_Controller {
 			print_r($valor['json']);
 		} else {
 			$this -> load -> model("grupo/mpersona", "MPersona");
-			$valor = $this -> MPersona -> jsPersona('11237476');
+			$valor = $this -> MPersona -> jsPersona('3578175');
 			print_r($valor['json']);
 		}
 	}

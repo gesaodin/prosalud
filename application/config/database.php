@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'grupopro_mirror';
-$db['default']['password'] = 'avt82mvp3c';
-$db['default']['database'] = 'grupopro_mirror';
+$db['default']['username'] = 'root';
+$db['default']['password'] = 'za63qj2p';
+$db['default']['database'] = 'prosalud';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

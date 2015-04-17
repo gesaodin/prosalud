@@ -13,12 +13,10 @@
 
 	
 	<font size="4pt">
-	- El Sistema se encuentra Actualmente Actualizado a la fecha del 30/01/2013. <br><br>
-	
-	- Para el Día 01/02/2013, se renovó Contraloría Municipal de Biruaca. <br> <br>
+	- El Sistema se encuentra Actualmente Actualizado a la fecha del 16/04/2015. <br><br>	
 		
-	- Para el Día 16/03/2013, se renovó Gobernación de Apure y el Sindicato de Trabajadores de la Enseñanza del Estado Apure, 
-	próxima renovación será el Para el Año 2014.. <br><br>
+	- Para el Día 01/04/2015, se renovó Gobernación de Apure y el Sindicato de Trabajadores de la Enseñanza del Estado Apure, 
+	próxima renovación será el Para el Año 2015... <br><br>
 </font>
 <?php $this->load->view("incluir/pie");?>
   

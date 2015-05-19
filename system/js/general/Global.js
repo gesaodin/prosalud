@@ -4,7 +4,7 @@
  * DESARROLLADO POR: CARLOS PEÑA
  * FECHA DE ELABORACION: 27/05/2012
  */
-var sUrl = 'http://' + window.location.hostname + '';
+var sUrl = 'http://' + window.location.hostname + '/prosalud';
 var sUrlP = sUrl + '/index.php/gprosalud/';
 var sImg = sUrl + '/system/img/';
 

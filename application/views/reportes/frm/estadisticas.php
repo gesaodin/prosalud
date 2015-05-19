@@ -4,7 +4,7 @@
 		<td style='width:90px;'>Estado: </td>
 		<td style="width: 100px;" align="left" colspan="5">
 			
-			<select name="txtEstadoNo"	id="txtEstadoNo"style="" onblur="Organismos('No')">				
+			<select name="txtEstadoEs"	id="txtEstadoEs"style="" onblur="Organismos('Es')">				
 				<option value='0'>Todos</option>
 				<?php
 					foreach ($estados as $key => $value) {
@@ -17,7 +17,7 @@
 	<tr>
 		<td>Organismo :</td>
 		<td>
-			<select name="txtContratanteNo"	id="txtContratanteNo" style="width: 400px;">
+			<select name="txtContratanteEs"	id="txtContratanteEs" style="width: 400px;">
 				<option value='-----------'>-----------</option>
 				
 				
@@ -27,7 +27,7 @@
 		<tr>
 		<td>Estatus :</td>
 		<td>
-			<select name="txtTipoNo"	id="txtTipoNo" style="width: 400px;">
+			<select name="txtTipoEs"	id="txtTipoEs" style="width: 400px;">
 				<option value='Todos'>Todos</option>
 				<option value='0'>Inactivo</option>
 				<option value='1'>Activos</option>			

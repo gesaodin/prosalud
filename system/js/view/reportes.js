@@ -44,6 +44,19 @@ $(function() {
 	});
 	
 
+		$("#estadisticas_imp").dialog({
+			buttons : {
+				"Generar" : function() {
+					Estadisticas();
+					$(this).dialog("close");
+				},
+				"Cerrar" : function() {
+					$(this).dialog("close");
+				}
+			}
+		});
+		
+		
 });
 function muestra_div(elemento) {
 	$("#" + elemento).dialog('open');
@@ -110,9 +123,10 @@ function Nominas() {
 
 }
 
-function Organismos(){
-	$("#txtContratante").find('option').remove().end();
-	valor = $("#txtEstado").val();
+function Organismos(ele){
+	$("#txtContratante" + ele).find('option').remove().end();
+	valor = $("#txtEstado" + ele).val();
+	
 	$.ajax({
 		url :  sUrlP + "LOrganismos/" + valor,
 		type : "POST",
@@ -120,7 +134,7 @@ function Organismos(){
 		dataType : "json",
 		success : function(data) {		
 			$.each(data, function(item, valor) {						
-				$("#txtContratante").append(new Option(valor, valor));
+				$("#txtContratante" + ele).append(new Option(valor, valor));
 			});		
 		}
 	});

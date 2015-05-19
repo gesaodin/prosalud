@@ -18,7 +18,9 @@
 			<td style="width: 50px"></td>
 			<td align="center">
 				<img src="<?php echo __IMG__ ?>reportes/busca_contrato.jpg" style='width:48px' onClick="muestra_div('nomina_imp');"/><br>Nominas</td>
-			
+			<td style="width: 50px"></td>
+			<td align="center">
+				<img src="<?php echo __IMG__ ?>reportes/estadistica.png" style='width:48px' onClick="muestra_div('estadisticas_imp');"/><br>Estadisticas</td>
 		</tr>
 		</table>	
 		
@@ -31,6 +33,12 @@
 			<br>
 			<?php $this->load->view("reportes/frm/proveedores");?>									
 		</div>
+		
+		<div id="estadisticas_imp" class="dialogo" title="Listado de Servicios">
+			<br>
+			<?php $this->load->view("reportes/frm/estadisticas");?>									
+		</div>
+		
 	</div>
 	<div id="Reportes" style="width: 100%;"></div>
 <?php $this->load->view("incluir/pie");?>

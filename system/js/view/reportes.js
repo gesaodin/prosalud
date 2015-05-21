@@ -20,7 +20,9 @@ $(function() {
 			dates.not(this).datepicker("option", option, date);
 		}
 	});
-	
+	$.datepicker.setDefaults($.datepicker.regional['es']);
+	$("#fecha_desde").datepicker("option", "dateFormat", "yy-mm-dd");
+	$("#fecha_hasta").datepicker("option", "dateFormat", "yy-mm-dd");
 	
 	
 	$(".dialogo").dialog({

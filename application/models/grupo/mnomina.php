@@ -304,7 +304,16 @@ class MNomina extends CI_Model {
 		}
 	
 	
-		$sConsulta = "SELECT *, wt_doc.fecha as Afecha FROM wt_doc INNER JOIN td_personas ON wt_doc.cedula_titular=td_personas.cedula WHERE wt_doc.fecha BETWEEN '" . $arr['desde'] . "' AND '" . $arr['hasta'] . "'";
+		$sConsulta = "SELECT *, wt_doc.fecha as Afecha FROM wt_doc 
+				INNER JOIN td_personas ON wt_doc.cedula_titular=td_personas.cedula 
+				INNER JOIN td_personasubicacion ON td_personas.cedula=td_personasubicacion.cedula
+				INNER JOIN td_personascontratantes ON td_personas.cedula=td_personascontratantes.oid
+				WHERE 
+				td_personasubicacion.estado='" . $arr['est'] . "' AND
+				td_personascontratantes.contratantes='" . $arr['con'] . "' AND
+				wt_doc.fecha BETWEEN '" . $arr['desde'] . "' AND '" . $arr['hasta'] . "'";
+		
+		//echo $sConsulta;
 		
 		
 		$oCabezera[1] = array("titulo" => "CODIGO", "atributos" => "width:80px", "buscar" => 0);

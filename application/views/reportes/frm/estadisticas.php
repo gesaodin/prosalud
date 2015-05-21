@@ -28,15 +28,33 @@
 		<td>Estatus :</td>
 		<td>
 			<select name="txtTipoEs"	id="txtTipoEs" style="width: 400px;">
-				<option value='Todos'>Todos</option>
-				<option value='0'>Inactivo</option>
-				<option value='1'>Activos</option>			
 				
+				<option value=0>HCM</option>
+				<option value=1>Consultas</option>
+				<option value=2>Laboratorios</option>				
 			</select>
 		</td>
 	</tr>
 	
-</table>
+
+		<tr>
+		<td>Fecha Desde :</td>
+		<td>
+			<input type='text' id="fecha_desde" style="width: 380px;">
+			
+		</td>
+	</tr>
+	
+		<tr>
+		<td>Fecha Hasta :</td>
+		<td>
+			<input type='text' id="fecha_hasta" style="width: 380px;">
+			
+		</td>
+	</tr>
+	
+	
+	</table>
 
 
 

@@ -2082,6 +2082,16 @@ class GProsalud extends CI_Controller {
 
 	}
 
+	
+	function EstadisticasServicios() {
+		$this -> load -> model('grupo/mnomina', 'MNomina');		
+		$lst = $this -> MNomina -> EstadisticasServicios($_POST);
+		print_r($lst['json']);
+		
+	}
+	
+	
+	
 	function ejecuta() {
 		exec("system/exec/prueba", $val, $rc);
 		print_r($val);
@@ -2091,6 +2101,9 @@ class GProsalud extends CI_Controller {
 
 	}
 
+	
+	
+	
 }
 
 /* End of file welcome.php */

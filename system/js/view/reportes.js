@@ -8,6 +8,21 @@ $(function() {
 	$("#mcliente").removeClass('active');	
 	$("#mvarios").removeClass('active');
 	$("#mreporte").addClass('active');
+	
+	
+	
+	var dates = $("#fecha_desde, #fecha_hasta").datepicker({
+		showOn : "button",
+		buttonImage : sImg + "calendar.gif",
+		buttonImageOnly : true,
+		onSelect : function(selectedDate) {
+			var option = this.id == "fecha_desde" ? "minDate" : "maxDate", instance = $(this).data("datepicker"), date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings);
+			dates.not(this).datepicker("option", option, date);
+		}
+	});
+	
+	
+	
 	$(".dialogo").dialog({
 		modal : true,
 		autoOpen : false,
@@ -47,7 +62,7 @@ $(function() {
 		$("#estadisticas_imp").dialog({
 			buttons : {
 				"Generar" : function() {
-					Estadisticas();
+					EstadisticasServicios();
 					$(this).dialog("close");
 				},
 				"Cerrar" : function() {
@@ -123,6 +138,7 @@ function Nominas() {
 
 }
 
+
 function Organismos(ele){
 	$("#txtContratante" + ele).find('option').remove().end();
 	valor = $("#txtEstado" + ele).val();
@@ -139,3 +155,34 @@ function Organismos(ele){
 		}
 	});
 }
+
+
+
+function EstadisticasServicios() {
+	$("#carga_busqueda").dialog('open');
+	alert("asdf");
+	$.ajax({
+		url : sUrlP + "EstadisticasServicios",
+		data : 'est=' + $('#txtEstadoEs').val() + '&con=' + $('#txtContratanteEs').val() + "&estatus=" + $('#txtTipoEs').val() + "&desde=" + $('#fecha_desde').val() + "&hasta=" + $('#fecha_hasta').val(),
+		type : 'POST',
+		dataType : "json",
+		success : function(oEsq) {
+			//alert(oEsq);
+			Grid = new TGrid(oEsq, 'Reportes', '');
+			Grid.SetXls(false);
+			Grid.SetNumeracion(true);
+			Grid.SetName("Reportes");
+			Grid.SetDetalle();
+			Grid.Generar();
+			$("#carga_busqueda").dialog('close');
+		}
+	});
+
+}
+
+
+
+
+
+
+

@@ -320,14 +320,15 @@ class MNomina extends CI_Model {
 				INNER JOIN td_personas ON wt_doc.cedula_titular=td_personas.cedula
 				INNER JOIN td_personasubicacion ON td_personas.cedula=td_personasubicacion.cedula
 				INNER JOIN td_personascontratantes ON td_personas.cedula=td_personascontratantes.oid
+				INNER JOIN wt_docegreso ON wt_doc.codigo=wt_docegreso.codigo
 				WHERE
 				td_personasubicacion.estado='" . $arr['est'] . "' AND
 				td_personascontratantes.contratantes='" . $arr['con'] . "' AND
 				wt_doc.fecha BETWEEN '" . $arr['desde'] . "' AND '" . $arr['hasta'] . "'";
 		$oCabezera[1] = array("titulo" => "CODIGO", "atributos" => "width:80px", "buscar" => 0);
 		$oCabezera[2] = array("titulo" => "TITULAR", "atributos" => "width:80px", "buscar" => 0);
-		$oCabezera[3] = array("titulo" => "NOMBRE", "atributos" => "width:80px");
-		$oCabezera[4] = array("titulo" => "BENEFICIARIO", "atributos" => "width:200px");
+		$oCabezera[3] = array("titulo" => "BENEFICIARIO", "atributos" => "width:80px");
+		$oCabezera[4] = array("titulo" => "NOMBRE", "atributos" => "width:200px");
 		$oCabezera[5] = array("titulo" => "CENTRO", "atributos" => "width:120px");
 		$oCabezera[6] = array("titulo" => "TRATAMIENTO", "atributos" => "width:400px");
 		$oCabezera[7] = array("titulo" => "TIPO SERVICIO", "atributos" => "width:25px");

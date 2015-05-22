@@ -167,15 +167,16 @@ function EstadisticasServicios() {
 		url : sUrlP + "EstadisticasServicios",
 		data : 'est=' + $('#txtEstadoEs').val() + '&con=' + $('#txtContratanteEs').val() + "&estatus=" + $('#txtTipoEs').val() + "&desde=" + $('#fecha_desde').val() + "&hasta=" + $('#fecha_hasta').val(),
 		type : 'POST',
-		dataType : "json",
+		//dataType : "json",
 		success : function(oEsq) {
-			//alert(oEsq);
+			alert(oEsq);
+			/**
 			Grid = new TGrid(oEsq, 'Reportes', '');
 			Grid.SetXls(false);
 			Grid.SetNumeracion(true);
 			Grid.SetName("Reportes");
 			Grid.SetDetalle();
-			Grid.Generar();
+			Grid.Generar();**/
 			$("#carga_busqueda").dialog('close');
 		}
 	});

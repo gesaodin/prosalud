@@ -295,16 +295,21 @@ class MNomina extends CI_Model {
 	function EstadisticasServicios($arr) {
 		
 	
+		switch ($arr['estatus']){
+			case 0:
+				return $this->EstadisticasHCM($arr);
+				break;
+			case 1:
+				return $this->EstadisticasConsultas($arr);
+				break;
+			case 2:
+				return $this->EstadisticasLaboratorio($arr);
+				break;
+			case 3:
+				return $this->EstadisticasReembolso($arr);
+				break;
+		}
 		
-		
-		if($arr['estatus'] == 0){
-			return $this->EstadisticasHCM($arr);
-		}elseif($arr['estatus'] == 1)  {
-			return $this->EstadisticasConsultas($arr);			
-		}else {
-			$this->EstadisticasLaboratorio($arr);
-		}		
-				
 	
 	}
 	
@@ -414,12 +419,12 @@ class MNomina extends CI_Model {
 		
 		
 		
-		$oCabezera[1] = array("titulo" => "CODIGO", "atributos" => "width:80px", "buscar" => 0);
-		$oCabezera[2] = array("titulo" => "TITULAR", "atributos" => "width:80px", "buscar" => 0);
+		$oCabezera[1] = array("titulo" => "CODIGO", "atributos" => "width:80px", "buscar" => 1);
+		$oCabezera[2] = array("titulo" => "TITULAR", "atributos" => "width:80px", "buscar" => 1);
 		$oCabezera[3] = array("titulo" => "NOMBRE", "atributos" => "width:80px");
 		$oCabezera[4] = array("titulo" => "BENEFICIARIO", "atributos" => "width:200px");
 		$oCabezera[5] = array("titulo" => "CENTRO", "atributos" => "width:120px");
-		$oCabezera[6] = array("titulo" => "EXAMENES", "atributos" => "width:400px");		
+		$oCabezera[6] = array("titulo" => "EXAMENES", "atributos" => "width:400px", "buscar" => 1);		
 		$oCabezera[7] = array("titulo" => "COSTO", "atributos" => "width:45px");
 		$oCabezera[8] = array("titulo" => "CANTIDAD", "atributos" => "width:45px");
 		$oCabezera[9] = array("titulo" => "FECHA", "atributos" => "width:45px");
@@ -453,5 +458,57 @@ class MNomina extends CI_Model {
 	}
 	
 
+	function EstadisticasReembolso($arr){
+		$oFil = array();
+		$sConsulta = "SELECT * FROM td_reembolso
+				INNER JOIN td_personas ON td_reembolso.titular=td_personas.cedula
+				INNER JOIN td_personasubicacion ON td_personas.cedula=td_personasubicacion.cedula
+				INNER JOIN td_personascontratantes ON td_personas.cedula=td_personascontratantes.oid
+				WHERE
+				td_personasubicacion.estado='" . $arr['est'] . "' AND
+				td_personascontratantes.contratantes='" . $arr['con'] . "' AND
+				fechar BETWEEN '" . $arr['desde'] . "' AND '" . $arr['hasta'] . "'";
+	
+	
+	
+		$oCabezera[1] = array("titulo" => "CODIGO", "atributos" => "width:80px", "buscar" => 0);
+		$oCabezera[2] = array("titulo" => "TITULAR", "atributos" => "width:80px", "buscar" => 0);
+		$oCabezera[3] = array("titulo" => "NOMBRE", "atributos" => "width:80px");
+		$oCabezera[4] = array("titulo" => "CONCEPTO", "atributos" => "width:200px");
+		$oCabezera[5] = array("titulo" => "MONTO SOL.", "atributos" => "width:120px");
+		$oCabezera[6] = array("titulo" => "MONTO CUB.", "atributos" => "width:400px");
+		$oCabezera[7] = array("titulo" => "TIPO", "atributos" => "width:45px");
+		$oCabezera[8] = array("titulo" => "CANTIDAD", "atributos" => "width:45px");
+		$oCabezera[9] = array("titulo" => "FECHA", "atributos" => "width:45px");
+	
+		$rs = $this -> db -> query($sConsulta);
+		$rsC = $rs -> result();
+		$titulo = $sConsulta . "<br><br>";
+	
+		if ($rs -> num_rows() != 0) {
+			$i = 1;
+			foreach ($rsC as $row) {
+	
+				$oFil[$i++] = array(
+						'1' => $row -> codigo,  //
+						'2' =>  $row -> cedula,  //				
+						'4' => $row -> nombre,  //
+						'5' => $row -> concepto,  //
+						'6' => $row -> monto,  //
+						'7' => $row -> cubierto,  //
+						'8' => $row -> tipo,  //
+						'9' => $row -> cant,  //
+						'9' => $row -> fechar
+				);
+			}
+		}
+	
+		$oTable = array("Cabezera" => $oCabezera, "Cuerpo" => $oFil, "Origen" => 'json', "titulo" => $titulo);
+		$oValor['php'] = $oTable;
+		$oValor['json'] = json_encode($oTable);
+		return $oValor;
+	}
+	
+	
 }
 ?>

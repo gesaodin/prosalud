@@ -32,6 +32,7 @@
 				<option value=0>HCM</option>
 				<option value=1>Consultas</option>
 				<option value=2>Laboratorios</option>				
+				<option value=3>Reembolsos</option>
 			</select>
 		</td>
 	</tr>

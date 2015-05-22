@@ -162,7 +162,6 @@ function Organismos(ele){
 
 function EstadisticasServicios() {
 	$("#carga_busqueda").dialog('open');
-	//alert($("#txtTipoEs").val());
 	$("#Reportes").html("");
 	$.ajax({
 		url : sUrlP + "EstadisticasServicios",

@@ -491,7 +491,7 @@ class MNomina extends CI_Model {
 	
 				$oFil[$i++] = array(
 						'1' => $row -> codigo,  //
-						'2' =>  $row -> cedula,  //				
+						'2' => $row -> cedula,  //				
 						'4' => $row -> nombre,  //
 						'5' => $row -> concepto,  //
 						'6' => $row -> monto,  //

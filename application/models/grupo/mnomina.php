@@ -293,29 +293,32 @@ class MNomina extends CI_Model {
 	
 	
 	function EstadisticasServicios($arr) {
-		$oFil = array();
+		
 	
 		
-		$tipo = 'HCM';
+		
 		if($arr['estatus'] == 0){
-			$activo = '';
+			return $this->EstadisticasHCM($arr);
 		}elseif($arr['estatus'] == 1)  {
-			
-		}
+			return $this->EstadisticasConsultas($arr);			
+		}else {
+			$this->EstadisticasLaboratorio($arr);
+		}		
+				
+	
+	}
 	
 	
-		$sConsulta = "SELECT *, wt_doc.fecha as Afecha FROM wt_doc 
-				INNER JOIN td_personas ON wt_doc.cedula_titular=td_personas.cedula 
+	function EstadisticasHCM($arr){
+		$oFil = array();
+		$sConsulta = "SELECT *, wt_doc.fecha as Afecha FROM wt_doc
+				INNER JOIN td_personas ON wt_doc.cedula_titular=td_personas.cedula
 				INNER JOIN td_personasubicacion ON td_personas.cedula=td_personasubicacion.cedula
 				INNER JOIN td_personascontratantes ON td_personas.cedula=td_personascontratantes.oid
-				WHERE 
+				WHERE
 				td_personasubicacion.estado='" . $arr['est'] . "' AND
 				td_personascontratantes.contratantes='" . $arr['con'] . "' AND
 				wt_doc.fecha BETWEEN '" . $arr['desde'] . "' AND '" . $arr['hasta'] . "'";
-		
-		//echo $sConsulta;
-		
-		
 		$oCabezera[1] = array("titulo" => "CODIGO", "atributos" => "width:80px", "buscar" => 0);
 		$oCabezera[2] = array("titulo" => "TITULAR", "atributos" => "width:80px", "buscar" => 0);
 		$oCabezera[3] = array("titulo" => "NOMBRE", "atributos" => "width:80px");
@@ -325,16 +328,16 @@ class MNomina extends CI_Model {
 		$oCabezera[7] = array("titulo" => "TIPO SERVICIO", "atributos" => "width:25px");
 		$oCabezera[8] = array("titulo" => "FECHA", "atributos" => "width:45px");
 		
-	
+		
 		$rs = $this -> db -> query($sConsulta);
 		$rsC = $rs -> result();
 		$titulo = "<br><br>";
-	
+		
 		if ($rs -> num_rows() != 0) {
 			$i = 1;
 			foreach ($rsC as $row) {
-				
-				$oFil[$i++] = array(						
+		
+				$oFil[$i++] = array(
 						'1' => $row -> codigo,  //
 						'2' =>  $row -> cedula,  //
 						'3' => $row -> cedula_beneficiario,  //
@@ -343,17 +346,111 @@ class MNomina extends CI_Model {
 						'6' => $row -> tratamiento,  //
 						'7' => $row -> tipos,
 						'8' => $row -> Afecha
-				);  
+				);
 			}
 		}
-	
+		
 		$oTable = array("Cabezera" => $oCabezera, "Cuerpo" => $oFil, "Origen" => 'json', "titulo" => $titulo);
 		$oValor['php'] = $oTable;
 		$oValor['json'] = json_encode($oTable);
 		return $oValor;
 	}
 	
+	function EstadisticasConsultas($arr){
+		$oFil = array();
+		$sConsulta = "SELECT *, wt_doccon.fecha as Afecha FROM wt_doccon
+				INNER JOIN td_personas ON wt_doccon.cedula_titular=td_personas.cedula
+				INNER JOIN td_personasubicacion ON td_personas.cedula=td_personasubicacion.cedula
+				INNER JOIN td_personascontratantes ON td_personas.cedula=td_personascontratantes.oid
+				WHERE
+				td_personasubicacion.estado='" . $arr['est'] . "' AND
+				td_personascontratantes.contratantes='" . $arr['con'] . "' AND
+				wt_doccon.fecha BETWEEN '" . $arr['desde'] . "' AND '" . $arr['hasta'] . "'";
+		$oCabezera[1] = array("titulo" => "CODIGO", "atributos" => "width:80px", "buscar" => 0);
+		$oCabezera[2] = array("titulo" => "TITULAR", "atributos" => "width:80px", "buscar" => 0);
+		$oCabezera[3] = array("titulo" => "NOMBRE", "atributos" => "width:80px");
+		$oCabezera[4] = array("titulo" => "BENEFICIARIO", "atributos" => "width:200px");
+		$oCabezera[5] = array("titulo" => "CENTRO", "atributos" => "width:120px");
+		$oCabezera[6] = array("titulo" => "ESPECIALIDAD", "atributos" => "width:400px");		
+		$oCabezera[7] = array("titulo" => "FECHA", "atributos" => "width:45px");
+		
+		
+		$rs = $this -> db -> query($sConsulta);
+		$rsC = $rs -> result();
+		$titulo = "<br><br>";
+		
+		if ($rs -> num_rows() != 0) {
+			$i = 1;
+			foreach ($rsC as $row) {
+		
+				$oFil[$i++] = array(
+						'1' => $row -> codigo,  //
+						'2' =>  $row -> cedula,  //
+						'3' => $row -> cedula_beneficiario,  //
+						'4' => $row -> nombre,  //
+						'5' => $row -> centro,  //
+						'6' => $row -> especialidad,  //						
+						'7' => $row -> Afecha
+				);
+			}
+		}
+		
+		$oTable = array("Cabezera" => $oCabezera, "Cuerpo" => $oFil, "Origen" => 'json', "titulo" => $titulo);
+		$oValor['php'] = $oTable;
+		$oValor['json'] = json_encode($oTable);
+		return $oValor;
+	}
 	
+	function EstadisticasLaboratorio($arr){
+		$oFil = array();
+		$sConsulta = "SELECT *, wt_doclab.fecha as Afecha FROM wt_doclab
+				INNER JOIN td_personas ON wt_doclab.cedula_titular=td_personas.cedula
+				INNER JOIN td_personasubicacion ON td_personas.cedula=td_personasubicacion.cedula
+				INNER JOIN td_personascontratantes ON td_personas.cedula=td_personascontratantes.oid
+				WHERE
+				td_personasubicacion.estado='" . $arr['est'] . "' AND
+				td_personascontratantes.contratantes='" . $arr['con'] . "' AND
+				wt_doclab.fecha BETWEEN '" . $arr['desde'] . "' AND '" . $arr['hasta'] . "'";
+		
+		
+		
+		$oCabezera[1] = array("titulo" => "CODIGO", "atributos" => "width:80px", "buscar" => 0);
+		$oCabezera[2] = array("titulo" => "TITULAR", "atributos" => "width:80px", "buscar" => 0);
+		$oCabezera[3] = array("titulo" => "NOMBRE", "atributos" => "width:80px");
+		$oCabezera[4] = array("titulo" => "BENEFICIARIO", "atributos" => "width:200px");
+		$oCabezera[5] = array("titulo" => "CENTRO", "atributos" => "width:120px");
+		$oCabezera[6] = array("titulo" => "EXAMENES", "atributos" => "width:400px");		
+		$oCabezera[7] = array("titulo" => "COSTO", "atributos" => "width:45px");
+		$oCabezera[8] = array("titulo" => "CANTIDAD", "atributos" => "width:45px");
+		$oCabezera[9] = array("titulo" => "FECHA", "atributos" => "width:45px");
+		
+		$rs = $this -> db -> query($sConsulta);
+		$rsC = $rs -> result();
+		$titulo = "<br><br>";
+		
+		if ($rs -> num_rows() != 0) {
+			$i = 1;
+			foreach ($rsC as $row) {
+		
+				$oFil[$i++] = array(
+						'1' => $row -> codigo,  //
+						'2' =>  $row -> cedula,  //
+						'3' => $row -> cedula_beneficiario,  //
+						'4' => $row -> nombre,  //
+						'5' => $row -> centro,  //
+						'6' => $row -> examenes,  //
+						'7' => $row -> costo,  //
+						'8' => $row -> cantidad,  //
+						'9' => $row -> Afecha
+				);
+			}
+		}
+		
+		$oTable = array("Cabezera" => $oCabezera, "Cuerpo" => $oFil, "Origen" => 'json', "titulo" => $titulo);
+		$oValor['php'] = $oTable;
+		$oValor['json'] = json_encode($oTable);
+		return $oValor;
+	}
 	
 
 }

@@ -483,7 +483,7 @@ class MNomina extends CI_Model {
 	
 		$rs = $this -> db -> query($sConsulta);
 		$rsC = $rs -> result();
-		$titulo = $sConsulta . "<br><br>";
+		$titulo = "<br><br>";
 	
 		if ($rs -> num_rows() != 0) {
 			$i = 1;

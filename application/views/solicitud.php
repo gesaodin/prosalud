@@ -1,6 +1,6 @@
 <?php $this->load->view("incluir/cabezera");?>
 <script type="text/javascript" src="<?php echo __JSVIEW__ ?>view/persona.js"></script>
-<script type="text/javascript" src="<?php echo __JSVIEW__ ?>tgrid/tgrid.js"></script>
+<script type="text/javascript" src="<?php echo __JSVIEW__ ?>tgrid/tgrid-min.js"></script>
 
 <?php $this->load->view("incluir/cuerpo");?>
 	<h2> Solicitud de Servicios</h2><br>

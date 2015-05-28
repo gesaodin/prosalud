@@ -7,8 +7,5 @@
 				
 		</div>
 		
-		<div id="lateral_i"> <center><br>
-					<?php $this->load->view("menu/lateral.php");?>
-			</center>
-		</div>
+		
 		<div id="medio"> 

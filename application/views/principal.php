@@ -13,10 +13,8 @@
 
 	
 	<font size="4pt">
-	- El Sistema se encuentra Actualmente Actualizado a la fecha del 16/04/2015. <br><br>	
-		
-	- Para el Día 01/04/2015, se renovó Gobernación de Apure y el Sindicato de Trabajadores de la Enseñanza del Estado Apure, 
-	próxima renovación será el Para el Año 2015... <br><br>
+	- El Sistema se encuentra actualmente en remodelaciones. <br><br>	
+	<br><br>
 </font>
 <?php $this->load->view("incluir/pie");?>
   

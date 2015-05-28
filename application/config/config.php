@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/prosalud';
+$config['base_url']	= 'http://200.8.36.131/prosalud';
 
 /*
 |--------------------------------------------------------------------------

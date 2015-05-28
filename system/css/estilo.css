@@ -9,58 +9,6 @@
 	------------------------------------------------------------------------
 	*/
 
-.estilochat {
-	width: auto;
-	font: 70% "Trebuchet MS", Arial, Helvetica, sans-serif;
-	
-}
-.estilochat ul, li {
-	list-style-type: none;
-}
-.estilochat li {
-	list-style-image: url('/system/img/usuariochat.png');
-  list-style-type: square;
-	left:0px;
-}
-.estilochat a {
-	position: relative;
-	text-decoration: none;
-	color: #3366CC;
-	background: transparent;
-	display: block;
-}
-
-.estilochat a div {
-	display: none;
-	width : auto;
-	position:fixed; 
-	border: 2px solid #dfd9c3;
-    background-image:-moz-linear-gradient(top, #f5f3e5, #ffffff);*
-    opacity:0.95;
-    -webkit-border-top-left-radius: 5px;
-	-webkit-border-top-right-radius: 5px;
-	-webkit-border-bottom-left-radius:5px;
-	-webkit-border-bottom-right-radius:5px;
-	-moz-border-radius: 5px 5px 5px 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;	
-}
-.estilochat a:hover div {
-	display: block;
-	z-index:20;
-	top:300px;
-    left: 165px; 
-}
-.estilochat li:hover{
-	list-style-image: url('/system/img/usuariochat2.png');
-   list-style-type: square;
-}
-.estilochat a:hover {
-	color: green;
-	background: #E2ECEE;  
-}
 * {
 	margin: 0;
 	padding: 0;
@@ -206,7 +154,7 @@ h5 {
 }
 #medio {
 	top:45px;
-	left: 185px;
+	left: 15px;
 	position: absolute;
 	overflow: auto;
 	background-color: transparent;

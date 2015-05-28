@@ -123,7 +123,7 @@ function Nominas() {
 	$("#carga_busqueda").dialog('open');
 	$.ajax({
 		url : sUrlP + "Nominas_Listar_Titulares",
-		data : 'est=' + $('#txtEstado').val() + '&con=' + $('#txtContratante').val() + "&estatus=" + $('#txtTipo').val(),
+		data : 'est=' + $('#txtEstadoNo').val() + '&con=' + $('#txtContratanteNo').val() + "&estatus=" + $('#txtTipoNo').val(),
 		type : 'POST',
 		dataType : "json",
 		success : function(oEsq) {

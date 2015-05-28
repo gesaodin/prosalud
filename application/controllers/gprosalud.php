@@ -47,7 +47,7 @@ class GProsalud extends CI_Controller {
 		$this -> load -> model('motor/cls/mgwdoc', 'WFDOC');
 		$sArr = array('cant' => $this -> WFDOC -> Cantidad());
 		echo json_encode($sArr);
-
+		
 	}
 
 	function principal() {
@@ -62,7 +62,7 @@ class GProsalud extends CI_Controller {
 
 	function buzon() {
 		if (isset($_SESSION['usuario'])) {
-			$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+			//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 			$data['menu'] = $this -> CMenu -> Generar();
 			$this -> load -> view('buzon', $data);
 		} else {
@@ -72,7 +72,7 @@ class GProsalud extends CI_Controller {
 
 	function cirugiaelectiva() {
 		if (isset($_SESSION['usuario'])) {
-			$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+			//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 			$data['menu'] = $this -> CMenu -> Generar();
 			$this -> load -> view('cirugiaelectiva', $data);
 		} else {
@@ -82,7 +82,7 @@ class GProsalud extends CI_Controller {
 
 	function reembolsosh($sMarca) {
 		if (isset($_SESSION['usuario'])) {
-			$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+			//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 			$data['menu'] = $this -> CMenu -> Generar();
 			$this -> load -> view('preembolsoh', $data);
 		} else {
@@ -109,7 +109,7 @@ class GProsalud extends CI_Controller {
 
 	function laboratorio() {
 		if (isset($_SESSION['usuario'])) {
-			$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+			//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 			$data['menu'] = $this -> CMenu -> Generar();
 			$this -> load -> view('laboratorio', $data);
 		} else {
@@ -119,7 +119,7 @@ class GProsalud extends CI_Controller {
 
 	function consulta() {
 		if (isset($_SESSION['usuario'])) {
-			$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+			//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 			$data['menu'] = $this -> CMenu -> Generar();
 			$this -> load -> view('consulta', $data);
 		} else {
@@ -141,7 +141,7 @@ class GProsalud extends CI_Controller {
 		$this -> MEstados -> Listar();
 		$data['estados'] = $this -> MEstados -> lstEstados;
 		$data['menu'] = $this -> CMenu -> Generar();
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$this -> load -> view('usuario/consultar', $data);
 	}
 
@@ -151,7 +151,7 @@ class GProsalud extends CI_Controller {
 		$data['estados'] = $this -> MEstados -> lstEstados;
 		$data['menu'] = $this -> CMenu -> Generar();
 
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$data['quien'] = $v;
 		$this -> load -> view('usuario/solicitud_hcm', $data);
 	}
@@ -160,7 +160,7 @@ class GProsalud extends CI_Controller {
 		$this -> MEstados -> Listar();
 		$data['estados'] = $this -> MEstados -> lstEstados;
 		$data['menu'] = $this -> CMenu -> Generar();
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$this -> load -> view('usuario/solicitud_reembolso', $data);
 	}
 
@@ -169,7 +169,7 @@ class GProsalud extends CI_Controller {
 		$this -> MEstados -> Listar();
 		$data['estados'] = $this -> MEstados -> lstEstados;
 		$data['menu'] = $this -> CMenu -> Generar();
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$this -> load -> view('usuario/solicitud_reembolsol', $data);
 	}
 
@@ -180,7 +180,7 @@ class GProsalud extends CI_Controller {
 		$data['especialidades'] = $this -> MEspecialidades -> lstEsp;
 		$data['estados'] = $this -> MEstados -> lstEstados;
 		$data['menu'] = $this -> CMenu -> Generar();
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$this -> load -> view('usuario/solicitud_con', $data);
 	}
 
@@ -191,7 +191,7 @@ class GProsalud extends CI_Controller {
 		$data['especialidades'] = $this -> MEspecialidades -> lstEsp;
 		$data['estados'] = $this -> MEstados -> lstEstados;
 		$data['menu'] = $this -> CMenu -> Generar();
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$this -> load -> view('usuario/odontologia', $data);
 	}
 
@@ -211,7 +211,7 @@ class GProsalud extends CI_Controller {
 		$data['categoria'] = $categoria['php'];
 
 		$data['menu'] = $this -> CMenu -> Generar();
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$this -> load -> view('usuario/solicitud_lab', $data);
 
 	}
@@ -233,7 +233,7 @@ class GProsalud extends CI_Controller {
 		$this -> MEstados -> Listar();
 		$data['estados'] = $this -> MEstados -> LActivos();
 		$data['menu'] = $this -> CMenu -> Generar();
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$this -> load -> view('configurar/renovar', $data);
 	}
 
@@ -299,7 +299,7 @@ class GProsalud extends CI_Controller {
 	function reembolsos_pendientes() {
 		$data['estados'] = '';
 		$data['menu'] = $this -> CMenu -> Generar();
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$this -> load -> view('r_pendientes', $data);
 	}
 
@@ -373,7 +373,7 @@ class GProsalud extends CI_Controller {
 			 */
 			$data['Nuevo'] = "N";
 		}
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$data['menu'] = $this -> CMenu -> Generar();
 		$this -> load -> view('usuario/dependientes', $data);
 	}
@@ -723,7 +723,7 @@ class GProsalud extends CI_Controller {
 
 	function Centros() {
 		if (isset($_SESSION['usuario'])) {
-			$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+			//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 			$data['menu'] = $this -> CMenu -> Generar();
 			$data['estados'] = $this -> MEstados -> LActivosP();
 			$this -> load -> view('centro/index', $data);
@@ -749,7 +749,7 @@ class GProsalud extends CI_Controller {
 	}
 
 	function Reportes() {
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$data['menu'] = $this -> CMenu -> Generar();
 		$data['estados'] = $this -> MEstados -> LActivos();
 		$data['estadosP'] = $this -> MEstados -> LActivosP();
@@ -1382,7 +1382,7 @@ class GProsalud extends CI_Controller {
 	function Modificar_HCM($sClave, $sTitular, $sBeneficio) {
 		$this -> load -> model('motor/cls/mgwdoc', 'WFDOC');
 		$this -> MEstados -> Listar();
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$data['menu'] = $this -> CMenu -> Generar();
 		$data['estados'] = $this -> MEstados -> lstEstados;
 
@@ -1421,7 +1421,7 @@ class GProsalud extends CI_Controller {
 			$this -> Egreso($sClave, $sTitular, $sBeneficio);
 		} else {
 			$this -> MEstados -> Listar();
-			$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+			//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 			$data['menu'] = $this -> CMenu -> Generar();
 			$data['estados'] = $this -> MEstados -> lstEstados;
 			$sConsulta = 'SELECT codigo FROM wt_docingreso WHERE codigo=\'' . $sClave . '\'';
@@ -1486,7 +1486,7 @@ class GProsalud extends CI_Controller {
 		$this -> load -> model('motor/cls/mgwdocingreso', 'WFDOINGRESO');
 		$this -> load -> model('motor/cls/mgwdocegreso', 'WFDOEGRESO');
 		$this -> MEstados -> Listar();
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$data['menu'] = $this -> CMenu -> Generar();
 		$data['ingreso'] = $this -> WFDOINGRESO -> Buscar($sClave);
 		$data['egreso'] = $this -> WFDOEGRESO -> Buscar($sClave);
@@ -1532,7 +1532,7 @@ class GProsalud extends CI_Controller {
 		$this -> load -> model('motor/cls/mgwdoc', 'WFDOC');
 		$this -> load -> model('motor/cls/mgwdocegreso', 'WFDOEGRESO');
 		$this -> MEstados -> Listar();
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$data['menu'] = $this -> CMenu -> Generar();
 		$data['ingreso'] = $this -> WFDOEGRESO -> Buscar($sClave);
 
@@ -1568,7 +1568,7 @@ class GProsalud extends CI_Controller {
 		$this -> load -> model('motor/cls/mgwdoc', 'WFDOC');
 		$this -> load -> model('motor/cls/mgwdocegreso', 'WFDOEGRESO');
 		$this -> MEstados -> Listar();
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$data['menu'] = $this -> CMenu -> Generar();
 		$data['ingreso'] = $this -> WFDOEGRESO -> Buscar($sClave);
 
@@ -1604,7 +1604,7 @@ class GProsalud extends CI_Controller {
 		$this -> load -> model('motor/cls/mgwdoc', 'WFDOC');
 		$this -> load -> model('motor/cls/mgwdocegreso', 'WFDOCEGRESO');
 		$this -> MEstados -> Listar();
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		//$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$data['menu'] = $this -> CMenu -> Generar();
 		$data['ingreso'] = $this -> WFDOCEGRESO -> Buscar($sClave);
 
@@ -1951,7 +1951,7 @@ class GProsalud extends CI_Controller {
 	}
 
 	function recepcionfactura() {
-		$data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
+		// $data['usr'] = $this -> CUsuarios -> Usuarios_Conectados_Chat($_SESSION['usuario']);
 		$data['menu'] = $this -> CMenu -> Generar();
 		$data['estados'] = $this -> MEstados -> LActivos();
 		$data['estadosP'] = $this -> MEstados -> LActivosP();
@@ -2050,7 +2050,8 @@ class GProsalud extends CI_Controller {
 			$this -> db -> query($strQuery);
 
 		}
-		$this -> load -> view('login');
+		//$this -> load -> view('login');
+		redirect(base_url());
 		session_destroy();
 	}
 

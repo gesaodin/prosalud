@@ -332,12 +332,13 @@ class MNomina extends CI_Model {
 		$oCabezera[5] = array("titulo" => "CENTRO", "atributos" => "width:120px");
 		$oCabezera[6] = array("titulo" => "TRATAMIENTO", "atributos" => "width:400px");
 		$oCabezera[7] = array("titulo" => "TIPO SERVICIO", "atributos" => "width:25px");
-		$oCabezera[8] = array("titulo" => "FECHA", "atributos" => "width:45px");
+		$oCabezera[8] = array("titulo" => "MONTO EGRESO", "atributos" => "width:25px");
+		$oCabezera[9] = array("titulo" => "FECHA", "atributos" => "width:45px");
 		
 		
 		$rs = $this -> db -> query($sConsulta);
 		$rsC = $rs -> result();
-		$titulo = "<br><br>";
+		$titulo =  "<br><br>ESTADO: " . $arr['est'] . "<br>CONTRATANTE POR HCM: " . $arr['con'] . "<br><br>";
 		
 		if ($rs -> num_rows() != 0) {
 			$i = 1;
@@ -351,7 +352,8 @@ class MNomina extends CI_Model {
 						'5' => $row -> centro,  //
 						'6' => $row -> tratamiento,  //
 						'7' => $row -> tipos,
-						'8' => $row -> Afecha
+						'8' => $row -> montoc,
+						'9' => $row -> Afecha
 				);
 			}
 		}
@@ -372,6 +374,7 @@ class MNomina extends CI_Model {
 				td_personasubicacion.estado='" . $arr['est'] . "' AND
 				td_personascontratantes.contratantes='" . $arr['con'] . "' AND
 				wt_doccon.fecha BETWEEN '" . $arr['desde'] . "' AND '" . $arr['hasta'] . "'";
+		
 		$oCabezera[1] = array("titulo" => "CODIGO", "atributos" => "width:80px", "buscar" => 0);
 		$oCabezera[2] = array("titulo" => "TITULAR", "atributos" => "width:80px", "buscar" => 0);
 		$oCabezera[3] = array("titulo" => "NOMBRE", "atributos" => "width:80px");

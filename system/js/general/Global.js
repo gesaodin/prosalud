@@ -8,22 +8,16 @@ var sUrl = 'http://' + window.location.hostname + '/prosalud';
 var sUrlP = sUrl + '/index.php/gprosalud/';
 var sImg = sUrl + '/system/img/';
 
-setInterval(function() {
-	_getUsrConect();
-}, 1000);
-//Funcion de Cargar Usuarios
 
 $(function() {
-	//Funciones del Chat Controlan la salida...
 	originalTitle = document.title;
-	startChatSession(sUrl);
 	$([window, document]).blur(function() {
 		windowFocus = false;
 	}).focus(function() {
 		windowFocus = true;
 		document.title = originalTitle;
 	});
-	$("button").button();
+	
 	//Control del Boton Buscar en general Estilo
 	$('#btnTodo').hover(function() {
 		$(this).addClass('ui-state-hover');
@@ -41,7 +35,6 @@ $(function() {
 		}
 	});
 	$('#tabs').tabs();
-
 	$('#msj_alertas').dialog({
 		modal : true,
 		autoOpen : false,
@@ -54,7 +47,6 @@ $(function() {
 			},
 		}
 	});
-
 	$('#carga_busqueda').dialog({
 		modal : true,
 		autoOpen : false,
@@ -83,15 +75,3 @@ $(function() {
 
 });
 
-/**
- * Control de Usuarios Conectados al Sistema.
- */
-function _getUsrConect() {
-	$.ajax({
-		url : sUrlP + 'getUsrConnect',
-		dataType : 'json',
-		success : function(json) {
-			$('#iContador').html('Hcm Emergencia (' + json["cant"] + ')');
-		}
-	});
-}

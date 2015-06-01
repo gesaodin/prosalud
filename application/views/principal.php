@@ -11,9 +11,11 @@
 	<h2> Bienvenidos... Noticias del d&iacute;a</h2><br>
 	<h3> Fecha y hora actual del Sistema <?php echo date("d/m/Y h:m:s");?></h3><br><br>
 
-	
+	<br><br>
 	<font size="4pt">
-	- El Sistema se encuentra actualmente en remodelaciones. <br><br>	
+		
+		 
+	. <br><br>	
 	<br><br>
 </font>
 <?php $this->load->view("incluir/pie");?>

@@ -73,7 +73,7 @@ class CMenu extends CI_Model {
 			</li>';
 			$recepcion = '<li class="active" id="smingresar"><a href="' . base_url() . 'index.php/gprosalud/recepcionfactura"><span>Recepcion Facturas</span></a></li>';
 
-		} elseif ($_SESSION['usuario'] == "anaisbiaggi" || $_SESSION['usuario'] == "emma" || $_SESSION['usuario'] == "luis" || $_SESSION['usuario'] == "franklin") {
+		} elseif ($_SESSION['usuario'] == "anaisbiaggi" || $_SESSION['usuario'] == "adriana" || $_SESSION['usuario'] == "luis" || $_SESSION['usuario'] == "franklin") {
 			$ingresar = '<li class="active" id="smingresar"><a href="' . base_url() . 'index.php/gprosalud/registrar_usr"><span>Ingresar/Actualizar Usuario</span></a></li>';	
 			$proveedores = '<li  id="mvarios" ><a href="#"><span>Registrar</span></a>		   		
 		   		<ul>
@@ -101,7 +101,7 @@ class CMenu extends CI_Model {
 
 		}
 
-		if ($_SESSION['usuario'] == "anaisbiaggi" || $_SESSION['usuario'] == "luis" || $_SESSION['usuario'] == "emma" || $_SESSION['usuario'] == "franklin") {
+		if ($_SESSION['usuario'] == "anaisbiaggi" || $_SESSION['usuario'] == "luis" || $_SESSION['usuario'] == "adriana" || $_SESSION['usuario'] == "franklin") {
 			//$ingresar = '<li class="active" id="smingresar"><a href="' . base_url() . 'index.php/gprosalud/registrar_usr"><span>Actualizar Usuario</span></a></li>';
 			$hcm = '<li class="active" id="smhcm"><a href="' . base_url() . 'index.php/gprosalud/buzon"><span id="iContador">Hcm Emergencia (0)</span></a></li>';
 			$ce = '<li class="active" id="smhcm"><a href="' . base_url() . 'index.php/gprosalud/cirugiaelectiva"><span id="iContador">Hcm Cirugia Electiva</span></a></li>';
@@ -110,7 +110,7 @@ class CMenu extends CI_Model {
 			$she = '<li class="active" ><a href="' . base_url() . 'index.php/gprosalud/solicitud_usr/ce"><span> + Recepcion Cirugia Electiva</span></a></li>';
 
 		}
-
+		
 		if ($_SESSION['usuario'] == "yuliseth"  || $_SESSION['usuario'] == "aleida") {
 			$rp = '<li class="active" id="rpendientes"><a href="' . base_url() . 'index.php/gprosalud/reembolsos_pendientes"><span>Reembolsos Pendientes</span></a></li>	';
 			$sh = '<li class="active" ><a href="' . base_url() . 'index.php/gprosalud/solicitud_usr/h"><span>Solicitud (HCM)</span></a></li>';
@@ -122,13 +122,16 @@ class CMenu extends CI_Model {
 			$recepcion = '<li class="active" id="smingresar"><a href="' . base_url() . 'index.php/gprosalud/recepcionfactura"><span>Recepcion Facturas</span></a></li>';
 
 		}
-		if ($_SESSION['usuario'] == "franklin" || $_SESSION['usuario'] == "aleida") {
+		if ($_SESSION['usuario'] == "yuliseth" || $_SESSION['usuario'] == "aleida") {
 			$sh = '<li class="active" ><a href="' . base_url() . 'index.php/gprosalud/solicitud_usr/h"><span>Solicitud (HCM)</span></a></li>';
 			$ingresar = '<li class="active" id="smingresar"><a href="' . base_url() . 'index.php/gprosalud/registrar_usr"><span>Ingresar/Actualizar Usuario</span></a></li>';
 
 		}
-		if ($_SESSION['usuario'] == "maicepadilla" || $_SESSION['usuario'] == "hectorleon" || $_SESSION['usuario'] == "Andy") {
 		
+		if ($_SESSION['usuario'] == "maicepadilla" || $_SESSION['usuario'] == "yuraima" || $_SESSION['usuario'] == "hectorleon" || $_SESSION['usuario'] == "Andy") {
+		
+
+			$sh = '<li class="active" ><a href="' . base_url() . 'index.php/gprosalud/solicitud_usr/h"><span>Solicitud (HCM)</span></a></li>';				
 			$sl = '<li class="active" ><a href="' . base_url() . 'index.php/gprosalud/solicitud_con"><span>Solicitud de Consultas</span></a></li>';
 			$sc = '<li class="active" ><a href="' . base_url() . 'index.php/gprosalud/solicitud_lab"><span>Solicitud de Examenes Laboratorio</span></a></li>';
 			$serviciorh = '<li class="active" ><a href="' . base_url() . 'index.php/gprosalud/solicitud_remh"><span> + Recepcion Reembolso (HCM)</span></a></li>';
@@ -136,6 +139,7 @@ class CMenu extends CI_Model {
 			$she = '<li class="active" ><a href="' . base_url() . 'index.php/gprosalud/solicitud_usr/ce"><span> + Recepcion Cirugia Electiva</span></a></li>';
 			$od = '<li class="active" ><a href="' . base_url() . 'index.php/gprosalud/odontologia"><span>Solicitud de Odontologia</span></a></li>';
 		}
+
 
 		$mnu = '<div class="cssmenu">
 			<ul>

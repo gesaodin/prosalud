@@ -34,7 +34,7 @@
 	<br>
 	<div id="botones">
 		<?php 
-			if($_SESSION['usuario']=="luisany" || $_SESSION['usuario']=="emma" || $_SESSION['usuario']=="Crash" || $_SESSION['usuario']=="Oswaldo" || $_SESSION['usuario']=="anaisbiaggi"){
+			if($_SESSION['usuario']=="luisany" || $_SESSION['usuario']=="franklin" || $_SESSION['usuario']=="abel" || $_SESSION['usuario']=="Oswaldo" || $_SESSION['usuario']=="anaisbiaggi"){
 				echo '<button name="Solicitar" onclick="Registrar();">Guardar Titular</button>';	
 			}
 		?>

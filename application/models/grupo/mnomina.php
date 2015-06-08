@@ -316,7 +316,7 @@ class MNomina extends CI_Model {
 	
 	function EstadisticasHCM($arr){
 		$oFil = array();
-		$sConsulta = "SELECT *, wt_doc.fecha as Afecha FROM wt_doc
+		$sConsulta = "SELECT *, wt_doc.fecha as Afecha, wt_docegreso.observacion as OBS FROM wt_doc
 				INNER JOIN td_personas ON wt_doc.cedula_titular=td_personas.cedula
 				INNER JOIN td_personasubicacion ON td_personas.cedula=td_personasubicacion.cedula
 				INNER JOIN td_personascontratantes ON td_personas.cedula=td_personascontratantes.oid
@@ -331,9 +331,10 @@ class MNomina extends CI_Model {
 		$oCabezera[4] = array("titulo" => "NOMBRE", "atributos" => "width:200px");
 		$oCabezera[5] = array("titulo" => "CENTRO", "atributos" => "width:120px");
 		$oCabezera[6] = array("titulo" => "TRATAMIENTO", "atributos" => "width:400px");
-		$oCabezera[7] = array("titulo" => "TIPO SERVICIO", "atributos" => "width:25px");
-		$oCabezera[8] = array("titulo" => "MONTO EGRESO", "atributos" => "width:25px");
+		$oCabezera[7] = array("titulo" => "TIPO SERVICIO", "atributos" => "width:25px", "buscar" => 0);
+		$oCabezera[8] = array("titulo" => "MONTO EGRESO", "atributos" => "width:25px", "total" => 1);
 		$oCabezera[9] = array("titulo" => "FECHA", "atributos" => "width:45px");
+		$oCabezera[10] = array("titulo" => "OBSERVACION", "atributos" => "width:45px");
 		
 		
 		$rs = $this -> db -> query($sConsulta);
@@ -353,7 +354,8 @@ class MNomina extends CI_Model {
 						'6' => $row -> tratamiento,  //
 						'7' => $row -> tipos,
 						'8' => $row -> montoc,
-						'9' => $row -> Afecha
+						'9' => $row -> Afecha,
+						'10' => $row -> OBS
 				);
 			}
 		}
@@ -379,9 +381,11 @@ class MNomina extends CI_Model {
 		$oCabezera[2] = array("titulo" => "TITULAR", "atributos" => "width:80px", "buscar" => 0);
 		$oCabezera[3] = array("titulo" => "NOMBRE", "atributos" => "width:80px");
 		$oCabezera[4] = array("titulo" => "BENEFICIARIO", "atributos" => "width:200px");
-		$oCabezera[5] = array("titulo" => "CENTRO", "atributos" => "width:120px");
-		$oCabezera[6] = array("titulo" => "ESPECIALIDAD", "atributos" => "width:400px");		
+		$oCabezera[5] = array("titulo" => "CENTRO", "atributos" => "width:120px", "buscar" => 1);
+		$oCabezera[6] = array("titulo" => "ESPECIALIDAD", "atributos" => "width:200px", "buscar" => 1);		
 		$oCabezera[7] = array("titulo" => "FECHA", "atributos" => "width:45px");
+		$oCabezera[8] = array("titulo" => "CANTIDAD", "atributos" => "width:40px");
+		$oCabezera[9] = array("titulo" => "OBSERVACIONES", "atributos" => "width:400px");
 		
 		
 		$rs = $this -> db -> query($sConsulta);
@@ -399,7 +403,10 @@ class MNomina extends CI_Model {
 						'4' => $row -> nombre,  //
 						'5' => $row -> centro,  //
 						'6' => $row -> especialidad,  //						
-						'7' => $row -> Afecha
+						'7' => $row -> Afecha,
+						'8' => $row -> consultas,
+						'9' => $row -> observacion
+						
 				);
 			}
 		}
@@ -427,11 +434,12 @@ class MNomina extends CI_Model {
 		$oCabezera[2] = array("titulo" => "TITULAR", "atributos" => "width:80px", "buscar" => 1);
 		$oCabezera[3] = array("titulo" => "NOMBRE", "atributos" => "width:80px");
 		$oCabezera[4] = array("titulo" => "BENEFICIARIO", "atributos" => "width:200px");
-		$oCabezera[5] = array("titulo" => "CENTRO", "atributos" => "width:120px");
+		$oCabezera[5] = array("titulo" => "CENTRO", "atributos" => "width:120px", "buscar" => 1);
 		$oCabezera[6] = array("titulo" => "EXAMENES", "atributos" => "width:400px", "buscar" => 1);		
-		$oCabezera[7] = array("titulo" => "COSTO", "atributos" => "width:45px");
+		$oCabezera[7] = array("titulo" => "COSTO", "atributos" => "width:45px", "total" => 1);
 		$oCabezera[8] = array("titulo" => "CANTIDAD", "atributos" => "width:45px");
 		$oCabezera[9] = array("titulo" => "FECHA", "atributos" => "width:45px");
+		$oCabezera[10] = array("titulo" => "OBSERVACION", "atributos" => "width:45px");
 		
 		$rs = $this -> db -> query($sConsulta);
 		$rsC = $rs -> result();
@@ -450,7 +458,8 @@ class MNomina extends CI_Model {
 						'6' => $row -> examenes,  //
 						'7' => $row -> costo,  //
 						'8' => $row -> cantidad,  //
-						'9' => $row -> Afecha
+						'9' => $row -> Afecha,
+						'10' => $row -> observacion,
 				);
 			}
 		}
@@ -478,10 +487,10 @@ class MNomina extends CI_Model {
 		$oCabezera[1] = array("titulo" => "CODIGO", "atributos" => "width:80px", "buscar" => 0);
 		$oCabezera[2] = array("titulo" => "TITULAR", "atributos" => "width:80px", "buscar" => 0);
 		$oCabezera[3] = array("titulo" => "NOMBRE", "atributos" => "width:80px");
-		$oCabezera[4] = array("titulo" => "CONCEPTO", "atributos" => "width:200px");
-		$oCabezera[5] = array("titulo" => "MONTO SOL.", "atributos" => "width:120px");
-		$oCabezera[6] = array("titulo" => "MONTO CUB.", "atributos" => "width:400px");
-		$oCabezera[7] = array("titulo" => "TIPO", "atributos" => "width:45px");
+		$oCabezera[4] = array("titulo" => "CONCEPTO", "atributos" => "width:200px", "buscar" => 0);
+		$oCabezera[5] = array("titulo" => "MONTO SOL.", "atributos" => "width:50px");
+		$oCabezera[6] = array("titulo" => "MONTO CUB.", "atributos" => "width:50px", "total" => 1);
+		$oCabezera[7] = array("titulo" => "TIPO", "atributos" => "width:45px", "buscar" => 0);
 		$oCabezera[8] = array("titulo" => "CANTIDAD", "atributos" => "width:45px");
 		$oCabezera[9] = array("titulo" => "FECHA", "atributos" => "width:45px");
 	
@@ -496,12 +505,12 @@ class MNomina extends CI_Model {
 				$oFil[$i++] = array(
 						'1' => $row -> codigo,  //
 						'2' => $row -> cedula,  //				
-						'4' => $row -> nombre,  //
-						'5' => $row -> concepto,  //
-						'6' => $row -> monto,  //
-						'7' => $row -> cubierto,  //
-						'8' => $row -> tipo,  //
-						'9' => $row -> cant,  //
+						'3' => $row -> nombre,  //
+						'4' => $row -> concepto,  //
+						'5' => $row -> monto,  //
+						'6' => $row -> cubierto,  //
+						'7' => $row -> tipo,  //
+						'8' => $row -> cant,  //
 						'9' => $row -> fechar
 				);
 			}

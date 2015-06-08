@@ -44,7 +44,7 @@
 					Orden de Laboratorio</p></td>
 					<td style="width: 150px"></td>
 				<td valign="bottom"><b>N&uacute;mero de Solicitud: </b><?php echo $solicitud['codigo'];?><br>
-					<b>Fecha Emisi&oacute;n: </b><?php echo date("d/m/Y");?></b>
+					<b>Fecha Emisi&oacute;n: </b><?php  echo date("d/m/Y", strtotime($solicitud['fecha']));?></b>
 				</td>
 			</tr></table>	
 		</td>

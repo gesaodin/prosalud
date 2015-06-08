@@ -94,7 +94,7 @@
   <tr>
   	<td >Estatus:</td>
     <td align="left" >
-    	<select name="txtEstatus" id="txtEstatus" style="width: 180px;"  disabled="true">
+    	<select name="txtEstatus" id="txtEstatus" style="width: 180px;"  >
     	<option value="<?php echo $estatus ?>"  selected="selected"><?php echo $act?></option>	
       <option value=1>Activo</option>
       <option value=0>Inactivo</option>

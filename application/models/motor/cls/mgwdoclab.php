@@ -69,18 +69,20 @@ class MGWDocLab extends CI_Model {
 		$this -> load -> model("grupo/mpersona", "MPersona");
 		$oFil = array();
 		$sConsulta = '
-		SELECT wt_doclab.codigo, cedula_titular,td_personas.nombre, cedula_beneficiario,cantidad, costo, examenes 
-		FROM wt_doclab INNER JOIN td_personas ON wt_doclab.cedula_titular = td_personas.cedula;';
+		SELECT wt_doclab.codigo, cedula_titular,td_personas.nombre, cedula_beneficiario,cantidad, costo, examenes, creado,responsable
+		FROM wt_doclab INNER JOIN td_personas ON wt_doclab.cedula_titular = td_personas.cedula  where creado > \'2015-01-01\' ORDER BY creado DESC;';
 
-		$oCabezera[1] = array("titulo" => "CODIGO", "atributos" => "width:70px");
-		$oCabezera[2] = array("titulo" => "TITULAR", "atributos" => "width:70px");
+		$oCabezera[1] = array("titulo" => "CODIGO", "atributos" => "width:70px", "buscar" => 1);
+		$oCabezera[2] = array("titulo" => "TITULAR", "atributos" => "width:70px", "buscar" => 1);
 		$oCabezera[3] = array("titulo" => "NOMBRE", "atributos" => "width:200px");
 		$oCabezera[4] = array("titulo" => "DEPENDIENTE", "atributos" => "width:70px");
 		$oCabezera[5] = array("titulo" => "CANTIDAD", "atributos" => "width:20px");
 		$oCabezera[6] = array("titulo" => "COSTO", "atributos" => "width:20px");
-		$oCabezera[7] = array("titulo" => "EXAMENES", "atributos" => "width:340px");
+		$oCabezera[7] = array("titulo" => "EXAMENES", "atributos" => "width:340px", "buscar" => 1);
+		$oCabezera[8] = array("titulo" => "FECHA", "atributos" => "width:340px");
+		$oCabezera[9] = array("titulo" => "RESPONSABLE", "atributos" => "width:340px");
 		
-		$oCabezera[8] = array(
+		$oCabezera[10] = array(
 			"titulo" => "ACCION", //
 			"tipo" => "bimagen", //
 			"ruta" => __IMG__ . "botones/quitar.png", // 
@@ -89,7 +91,7 @@ class MGWDocLab extends CI_Model {
 			"parametro" => "1,2,4,5", //
 		);
 
-		$oCabezera[9] = array(
+		$oCabezera[11] = array(
 			"titulo" => " ", //
 			"tipo" => "enlace", //
 			"metodo"=> 2, //
@@ -114,8 +116,10 @@ class MGWDocLab extends CI_Model {
 					'5' => $row -> cantidad, // 
 					'6' => $row -> costo, //
 					'7' => $row -> examenes, //
-					'8' => "", //
-					'9' => ""
+					'8' => $row -> creado, //
+					'9' => $row -> responsable, //
+					'10' => "", //
+					'11' => ""
 					);
 			}
 		}

@@ -46,7 +46,7 @@ class MGWDocCon extends CI_Model {
 		$arr = array();
 		$tit = "";
 		$Pregunta = "SELECT codigo,td_personas.cedula,telefono,nombre,cedula_beneficiario,wt_doccon.estado,wt_doccon.ciudad,wt_doccon.centro,
-		wt_doccon.fecha,hora,creado,responsable,analista,observacion,especialidad,contratantes,td_personasubicacion.estado AS e FROM	wt_doccon	
+		wt_doccon.fecha,hora,creado,responsable,analista,observacion,especialidad,contratantes,td_personasubicacion.estado AS e, wt_doccon.creado AS fechaDoc FROM	wt_doccon	
 		INNER JOIN td_personas ON wt_doccon.cedula_titular=td_personas.cedula
 		INNER JOIN td_personascontratantes ON  td_personas.cedula=td_personascontratantes.oid
 		INNER JOIN td_personasubicacion ON  td_personas.cedula=td_personasubicacion.cedula
@@ -86,14 +86,14 @@ class MGWDocCon extends CI_Model {
 		$oFil = array();
 		$sConsulta = '
 		SELECT wt_doccon.codigo, cedula_titular,td_personas.nombre, cedula_beneficiario,consultas, especialidad , wt_doccon.fecha, wt_doccon.responsable
-		FROM wt_doccon INNER JOIN td_personas ON wt_doccon.cedula_titular = td_personas.cedula WHERE wt_doccon.estatus=0;';
+		FROM wt_doccon INNER JOIN td_personas ON wt_doccon.cedula_titular = td_personas.cedula WHERE wt_doccon.estatus=0  AND wt_doccon.fecha > \'2015-01-01\' ORDER BY wt_doccon.fecha DESC;';
 
 		$oCabezera[1] = array("titulo" => "CODIGO", "atributos" => "width:60px", "buscar" => 1);
 		$oCabezera[2] = array("titulo" => "TITULAR", "atributos" => "width:60px", "buscar" => 1);
 		$oCabezera[3] = array("titulo" => "NOMBRE", "atributos" => "width:120px");
 		$oCabezera[4] = array("titulo" => "BENEF.", "atributos" => "width:60px");
 		$oCabezera[5] = array("titulo" => "#", "atributos" => "width:12px");
-		$oCabezera[6] = array("titulo" => "ESPECIALIDAD", "atributos" => "width:150px");
+		$oCabezera[6] = array("titulo" => "ESPECIALIDAD", "atributos" => "width:150px", "buscar" => 1);
 		$oCabezera[7] = array("titulo" => "EMISION", "atributos" => "width:40px");
 		$oCabezera[8] = array("titulo" => "RESPONSABLE", "atributos" => "width:40px");
 		

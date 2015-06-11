@@ -60,6 +60,17 @@ function Consultar() {
 				$("#txtProfesion").val(json["profesion"]);
 				$("#txtDireccionHabitacion").val(json["direccion"]);
 				$("#txtTelefono").val(json["telefono"]);
+				
+				// Tramo nuevo de codigo para los estados y cuenta por persona 11-06-2015
+				$("#txtEstado").val(json["esta"]);
+				$("#txtCiudad").val(json["ciud"]);
+				
+				$("#txtbanco_1").val(json["banco"]);
+				$("#txtcuenta_1").val(json["cuenta"]);
+				$("#txtTipo_1").val(json["tcue"]);
+				$("#txtCorreo").val(json["corr"]);
+				//Fin del tema
+				
 				$("#txtOrganismoContratante").val(json["contratantes"]);
 				$("#txtEstadoContratante").val(json["estado"]);
 				$("#txtCiudadContratante").val(json["ciudad"]);
@@ -174,6 +185,18 @@ function Limpiar() {
 	$("#txtdependede").find('option').remove().end();
 	$("#txtdependede").append(new Option('----------', '----------'));
 
+	
+	
+	//---- 10-06-2015
+	$("#txtEstado").val('');
+	$("#txtCiudad").val('');
+	$("#txtbanco_1").val("----------");
+	$("#txtTipo_1").val("----------");	
+	$("#txtcuenta_1").val('');	
+	$("#txtCorreo").val('');
+	
+	
+	
 	//Contrataciones
 	$("#txtCobertura").val('');
 	$("#txtCoberturaDisponible").val('');

@@ -195,6 +195,27 @@
   </tr>
   
   <tr>
+    <td >Domiciliado por:</td>
+    <td align="left" >
+      
+      <select
+        id="txtDomi" style="width: 180px;" disabled="true">
+        <option>----------</option>
+        <option value=0>BANCO</option>
+        <option value=1>NOMINA</option>
+        
+      </select>
+      
+    </td>
+    
+		<td ></td>
+    <td align="right" >
+      
+    </td>
+  </tr>
+  
+  
+  <tr>
     <td style="width: 220px;" valign="top">Depende del Titular:</td>
     <td style="width: 185px;" align="left" colspan="3">
       <select name="txtdependede" id="txtdependede" style="width: 460px; height: 45px" multiple="true" ondblclick="Consultar_Depende()">

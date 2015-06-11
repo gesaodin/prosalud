@@ -77,7 +77,7 @@
       
       <option value='<?php echo $ano ?>'><?php echo $ano ?></option>
         <?php 
-          for($i = 1900; $i <= 2014; $i++){
+          for($i = 1900; $i <= 2021; $i++){
       ?>
         <option value='<?php echo $i ?>'><?php echo $i ?></option>
       <?php
@@ -133,10 +133,56 @@
        	 	echo $reted; 
         }
       ?>" />
-    </td>
-  <tr>
-    
+    </td>    
   </tr>
+  
+  
+  
+  <tr>
+    <td >Fecha de Ingreso:</td>
+    <td align="left" ><select id="txtDiaIngreso" style="width: 55px;">
+      <option value='<?php echo $diai ?>'><?php echo $diai ?></option>
+      <?php 
+        for($i = 1; $i <= 31; $i++){
+      ?>
+        <option value='<?php echo $i ?>'><?php echo $i ?></option>
+      <?php
+			}
+      ?>
+    </select>
+    <select id="txtMesIngreso" style="width: 55px;">
+      <option value='<?php echo $mesi ?>'><?php echo $mesi ?></option>
+      <?php 
+          for($i = 1; $i <= 12; $i++){
+      ?>
+        <option value='<?php echo $i ?>'><?php echo $i ?></option>
+      <?php
+			}
+      ?>
+    </select>
+    <select id="txtAnoIngreso" style="width: 65px;">
+      
+      <option value='<?php echo $anoi ?>'><?php echo $anoi ?></option>
+        <?php 
+          for($i = 2000; $i <= 2021; $i++){
+      ?>
+        <option value='<?php echo $i ?>'><?php echo $i ?></option>
+      <?php
+			}
+      ?>
+    </select></td>
+    <td ></td>
+    <td align="left" ></td>
+  </tr>
+  
+  
+   	<tr>
+		<td align="left" valign="top">
+			Observaciones:
+		</td><td colspan=6>	
+		<textarea name="txtBreveInforme"  type="text" id="txtBreveInforme" style="width: 440px; height: 45px"></textarea>		
+		</td>
+	</tr>
   
   
 </table>

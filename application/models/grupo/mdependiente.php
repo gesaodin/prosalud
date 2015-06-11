@@ -113,6 +113,7 @@ class MDependiente extends CI_Model {
 			$lst['parentesco'] = $rw->parentesco;
 			$lst['monto'] = $rw->monto;
 			$lst['fecha'] = $rw->fecha;
+			$lst['fechai'] = $rw->fechai;
 			$lst['telefono'] = $rw->telefono;
 			$lst['sexo'] = $rw->sexo;
 			$lst['celular'] = $rw->celular;

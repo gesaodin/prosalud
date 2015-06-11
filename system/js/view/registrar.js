@@ -75,6 +75,10 @@ function Consultar() {
 			$("#txtNacionalidad").val(json['nacionalidad']);
 			$("#txtEdocivil").val(json['estadocivil']);
 			$("#txtNombre1").val(json['nombre']);
+			
+			
+			
+			
 
 			fecha_nacimiento = json["fecha"];
 			var fechaN = new String(fecha_nacimiento);
@@ -90,6 +94,17 @@ function Consultar() {
 			$("#txtProfesion").val(json["profesion"]);
 			$("#txtDireccionTrabajo").val(json["ubicacion"]);
 			$("#txtDireccionHabitacion").val(json["direccion"]);
+			
+			// Tramo nuevo de codigo para los estados y cuenta por persona
+			$("#txtEstado").val(json["esta"]);
+			$("#txtCiudad").val(json["ciud"]);
+			
+			$("#txtbanco_1").val(json["banco"]);
+			$("#txtcuenta_1").val(json["cuenta"]);
+			$("#txtTipo_1").val(json["tcue"]);
+			$("#txtCorreo").val(json["corr"]);
+			
+			
 			$("#txtTelefono").val(json["telefono"]);
 			$("#txtOrganismoContratante").val(json["contratantes"]);
 
@@ -168,6 +183,15 @@ function Limpiar() {
 
 	$("#txtDireccionHabitacion").val('');
 	$("#txtTelefono").val('');
+	
+	//10-06-2015
+	$("#txtEstado").val('');
+	$("#txtCiudad").val('');
+	$("#txtbanco_1").val("----------");
+	$("#txtTipo_1").val("----------");	
+	$("#txtcuenta_1").val('');	
+	$("#txtCorreo").val('');
+	
 
 	$("#txtOrganismoContratante").val('');
 	//Contrataciones
@@ -201,6 +225,17 @@ function Registrar() {
 
 	estado = $("#txtEstadoContratante").val();
 	ciudad = $("#txtCiudadContratante").val();
+	
+	estadop = $("#txtEstado").val();
+	ciudadp = $("#txtCiudad").val();
+	
+	banco = $("#txtbanco_1").val();
+	cuenta = $("#txtcuenta_1").val();
+	tipo = $("#txtTipo_1").val();
+	correo = $("#txtCorreo").val();
+	
+	
+	
 	cargo = $("#txtCargo").val();
 	profesion = $("#txtProfesion").val();
 	dirtraba = $("#txtDireccionTrabajo").val();
@@ -244,10 +279,10 @@ function Registrar() {
 	var cadena = "ccobertura=" + ccobertura + "&cplan=" + cplan + "&crenovacion=" + crenovacion + "&cmonto_dependiente=" + cmonto_dependiente + "&cMT=" + cMT 
 	+ "&cMC=" + cMC + "&cconsultas=" + cconsultas + "&cexamenes=" + cexamenes + "&cLD=" + cLD + "&cOR=" + cOR + "&cES=" + cES + "&cEE=" + cEE + "&cG1=" 
 	+ cG1 + "&cG2=" + cG2 + "&cG3=" + cG3 + "&cG4=" + cG4 + "&dirtraba=" + dirtraba + "&disponible=" + disponible + "&retencion=" 
-	+ retencion + "&consulta=" + consulta + "&consultad=" + consultad + "&activo=" + activo + "&estado=" + estado + "&ciudad=" + ciudad 
-	+ "&cargo=" + cargo + "&profesion=" + profesion + "&contratantes=" + contratantes + "&examen=" + examen + "&examend=" + examend 
+	+ retencion + "&consulta=" + consulta + "&consultad=" + consultad + "&activo=" + activo + "&estado=" + estado + "&ciudad=" + ciudad + "&estadop=" + estadop 
+	+ "&ciudadp=" + ciudadp + "&cargo=" + cargo + "&profesion=" + profesion + "&contratantes=" + contratantes + "&examen=" + examen + "&examend=" + examend 
 	+ "&sex=" + sex + "&ced=" + ced + "&nom=" + nom + "&edo=" + edo + "&fecha=" + fecha + "&dir=" + dire + "&tel=" + telf + "&activacionf=" + activacionf
-	+ "&obs=" + obs;
+	+ "&obs=" + obs + "&banco=" + banco + "&tcue=" + tipo + "&cuenta=" + cuenta + "&correo=" + correo;
 	
 	if ($("#txtNombre1").val() == "" || $("#txtActivoF").val() == "") {
 		alert("No puede tener actualizacion en blanco la cedula...");
@@ -267,12 +302,12 @@ function Registrar() {
 
 function Ver_Dependientes() {
 	Url = sUrlP + "dependiente/" + $("#txtCedula").val() + "/" + $("#txtafiliados option:selected").val();
-	window.open(Url, "ventana1", "toolbar=0,location=1,menubar=0,scrollbars=1,resizable=1,width=700,height=400")
+	window.open(Url, "ventana1", "toolbar=0,location=1,menubar=0,scrollbars=1,resizable=1,width=700,height=500")
 }
 
 function Add_Dependientes() {
 	Url = sUrlP + "dependiente/" + $("#txtCedula").val() + "/N";
-	window.open(Url, "ventana1", "toolbar=0,location=1,menubar=0,scroConsultarllbars=1,resizable=1,width=700,height=400")
+	window.open(Url, "ventana1", "toolbar=0,location=1,menubar=0,scroConsultarllbars=1,resizable=1,width=700,height=500")
 }
 
 function Organismos() {

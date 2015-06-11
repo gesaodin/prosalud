@@ -179,6 +179,26 @@
       <input name="txtTelefono" id="txtTelefono" type="text" style="width: 150px;" >
     </td>
   </tr>
+  
+  <tr>
+    <td >Domiciliado por:</td>
+    <td align="left" >
+      
+      <select
+        id="txtDomi" style="width: 180px;" disabled="true">
+        <option>----------</option>
+        <option value=0>BANCO</option>
+        <option value=1>NOMINA</option>
+        
+      </select>
+      
+    </td>
+    
+		<td ></td>
+    <td align="right" >
+      
+    </td>
+  </tr>
 
 
 <?php 

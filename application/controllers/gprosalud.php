@@ -151,6 +151,7 @@ class GProsalud extends CI_Controller {
 		$this->load->view ( 'usuario/solicitud_reembolso', $data );
 	}
 	function solicitud_reml() {
+		
 		$this->MEstados->Listar ();
 		$data ['estados'] = $this->MEstados->lstEstados;
 		$data ['menu'] = $this->CMenu->Generar ();
@@ -318,6 +319,13 @@ class GProsalud extends CI_Controller {
 				$data ['ano'] = $fch [0];
 				$data ['mes'] = $fch [1];
 				$data ['dia'] = $fch [2];
+				
+				$fchi = explode ( "-", $depe ['fechai'] );
+				$data ['anoi'] = $fchi [0];
+				$data ['mesi'] = $fchi [1];
+				$data ['diai'] = $fchi [2];
+				
+				
 				$data ['dependiente'] = $iD;
 				$data ['nombred'] = $depe ['nombre'];
 				$data ['sexd'] = $depe ['sexo'];
@@ -379,11 +387,16 @@ class GProsalud extends CI_Controller {
 			$data ['cedula'] = $valor ['php'] ['cedula'];
 			$data ['nombre'] = $valor ['php'] ['nombre'];
 			
-			$fch = explode ( "-", $depe ['fecha'] );
-			
+			$fch = explode ( "-", $depe ['fecha'] );			
 			$data ['ano'] = $fch [0];
 			$data ['mes'] = $fch [1];
 			$data ['dia'] = $fch [2];
+			
+			$fchi = explode ( "-", $depe ['fechai'] );
+			$data ['anoi'] = $fchi [0];
+			$data ['mesi'] = $fchi [1];
+			$data ['diai'] = $fchi [2];
+			
 			
 			$data ['dependiente'] = $iD;
 			$data ['nombred'] = $depe ['nombre'];
@@ -421,6 +434,12 @@ class GProsalud extends CI_Controller {
 		$titular ['direccion'] = $_POST ['dir'];
 		$titular ['telefono'] = $_POST ['tel'];
 		$titular ['obs'] = $_POST ['obs'];
+		$titular ['ciud'] = $_POST ['ciudadp'];
+		$titular ['esta'] = $_POST ['estadop'];
+		$titular ['banco'] = $_POST ['banco'];
+		$titular ['cuenta'] = $_POST ['cuenta'];
+		$titular ['tcue'] = $_POST ['tcue'];
+		$titular ['corr'] = $_POST ['correo'];
 		
 		$sC = 'SELECT * FROM td_personas WHERE cedula=' . $cedula . ';';
 		$rs = $this->db->query ( $sC );
@@ -527,6 +546,8 @@ class GProsalud extends CI_Controller {
 		$dependiente ['retenido'] = $_POST ['ret'];
 		$dependiente ['estatus'] = $_POST ['act'];
 		$dependiente ['parentesco'] = $_POST ['par'];
+		$dependiente ['fechai'] = $_POST ['feci'];
+		
 		
 		$sCon = 'SELECT * FROM td_personas WHERE cedula=\'' . $cedula . '\' LIMIT 1';
 		

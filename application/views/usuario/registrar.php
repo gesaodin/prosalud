@@ -33,8 +33,10 @@
 	
 	<br>
 	<div id="botones">
-		<?php 
-			if($_SESSION['usuario']=="luisany" || $_SESSION['usuario']=="franklin" || $_SESSION['usuario']=="abel" || $_SESSION['usuario']=="Oswaldo" || $_SESSION['usuario']=="anaisbiaggi"){
+		
+		<?php
+			$usuario = strtolower($_SESSION['usuario']);
+			if($usuario == "luisany" || $usuario =="franklin" || $usuario == "abel" || $usuario  == "anaisbiaggi"){
 				echo '<button name="Solicitar" onclick="Registrar();">Guardar Titular</button>';	
 			}
 		?>

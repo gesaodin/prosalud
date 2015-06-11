@@ -103,6 +103,7 @@ function Consultar() {
 			$("#txtcuenta_1").val(json["cuenta"]);
 			$("#txtTipo_1").val(json["tcue"]);
 			$("#txtCorreo").val(json["corr"]);
+			$("#txtDomi").val(json["domi"]);
 			
 			
 			$("#txtTelefono").val(json["telefono"]);
@@ -191,6 +192,7 @@ function Limpiar() {
 	$("#txtTipo_1").val("----------");	
 	$("#txtcuenta_1").val('');	
 	$("#txtCorreo").val('');
+	$("#txtDomi").val('');
 	
 
 	$("#txtOrganismoContratante").val('');
@@ -233,6 +235,7 @@ function Registrar() {
 	cuenta = $("#txtcuenta_1").val();
 	tipo = $("#txtTipo_1").val();
 	correo = $("#txtCorreo").val();
+	domi = $("#txtDomi").val();
 	
 	
 	
@@ -282,7 +285,7 @@ function Registrar() {
 	+ retencion + "&consulta=" + consulta + "&consultad=" + consultad + "&activo=" + activo + "&estado=" + estado + "&ciudad=" + ciudad + "&estadop=" + estadop 
 	+ "&ciudadp=" + ciudadp + "&cargo=" + cargo + "&profesion=" + profesion + "&contratantes=" + contratantes + "&examen=" + examen + "&examend=" + examend 
 	+ "&sex=" + sex + "&ced=" + ced + "&nom=" + nom + "&edo=" + edo + "&fecha=" + fecha + "&dir=" + dire + "&tel=" + telf + "&activacionf=" + activacionf
-	+ "&obs=" + obs + "&banco=" + banco + "&tcue=" + tipo + "&cuenta=" + cuenta + "&correo=" + correo;
+	+ "&obs=" + obs + "&banco=" + banco + "&tcue=" + tipo + "&cuenta=" + cuenta + "&correo=" + correo + "&domi=" + domi;
 	
 	if ($("#txtNombre1").val() == "" || $("#txtActivoF").val() == "") {
 		alert("No puede tener actualizacion en blanco la cedula...");

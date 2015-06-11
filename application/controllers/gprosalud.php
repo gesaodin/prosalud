@@ -299,6 +299,10 @@ class GProsalud extends CI_Controller {
 		$data ['ano'] = "A&ntilde;o";
 		$data ['mes'] = "Mes";
 		$data ['dia'] = "Dia";
+		$data ['anoi'] = "A&ntilde;o";
+		$data ['mesi'] = "Mes";
+		$data ['diai'] = "Dia";
+		
 		$data ['estatus'] = '';
 		$data ['act'] = 'Activo';
 		$data ['teled'] = '';
@@ -440,6 +444,7 @@ class GProsalud extends CI_Controller {
 		$titular ['cuenta'] = $_POST ['cuenta'];
 		$titular ['tcue'] = $_POST ['tcue'];
 		$titular ['corr'] = $_POST ['correo'];
+		$titular ['domi'] = $_POST ['domi'];
 		
 		$sC = 'SELECT * FROM td_personas WHERE cedula=' . $cedula . ';';
 		$rs = $this->db->query ( $sC );

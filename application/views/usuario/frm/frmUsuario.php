@@ -200,9 +200,9 @@
       
       <select
         id="txtDomi" style="width: 180px;" disabled="true">
-        <option>----------</option>
-        <option value=0>BANCO</option>
-        <option value=1>NOMINA</option>
+        <option value=0>----------</option>
+        <option value=1>BANCO</option>
+        <option value=2>NOMINA</option>
         
       </select>
       

@@ -36,6 +36,7 @@ class CMenu extends CI_Model {
 			   			<li class="active" ><a href="' . base_url() . 'index.php/gprosalud/Ampliacion"><span>Ampliaci&oacute;n de Cobertura</span></a></li>
 			   			<li class="active" ><a href="' . base_url() . 'index.php/gprosalud/Cargar_Nomina"><span>Cargar Nomina</span></a></li>			   			
 			   			<li class="active" ><a href="' . base_url() . 'index.php/gprosalud/Nuevo_Convenio"><span>Nuevo Convenio</span></a></li>
+			   			<li class="active" ><a href="' . base_url() . 'index.php/gprosalud/crudLab"><span>R/A Laboratorios</span></a></li>	
 			   		</ul>	
 			   	</li>';
 			$ce = '<li class="active" id="smhcm"><a href="' . base_url() . 'index.php/gprosalud/cirugiaelectiva"><span id="iContador">Cirugia Electiva</span></a></li>';

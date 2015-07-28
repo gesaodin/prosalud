@@ -183,6 +183,7 @@ function Limpiar() {
 	$("#txtSexo").val('');
 
 	$("#txtDireccionHabitacion").val('');
+	
 	$("#txtTelefono").val('');
 	
 	//10-06-2015
@@ -193,6 +194,7 @@ function Limpiar() {
 	$("#txtcuenta_1").val('');	
 	$("#txtCorreo").val('');
 	$("#txtDomi").val('');
+	$("#txtDireccionTrabajo").val('');
 	
 
 	$("#txtOrganismoContratante").val('');

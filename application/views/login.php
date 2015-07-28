@@ -45,7 +45,7 @@
         <div id="login-container">
             <div id="login-sub-container">
                 <div id="login-sub-header">
-                    <img src="<?php echo __IMG__;?>gpsn.png" alt="logo" />
+                    <h1><font color="#FFFFFF">Grupo Prosalud C.A</font></h1>
                 </div>
                 <div id="login-sub">
                     <div id="forms">                        
@@ -58,6 +58,21 @@
                             <div class="input-field-login icon password-container">
                                 <input name="txtClave" id="pass" placeholder="Ingrese su contraseña de la cuenta." class="std_textbox" type="password" tabindex="2"  required>
                             </div>
+                            
+                            <div style="margin-top:30px;" class="input-req-login"><label for="pass">
+                            <?php 
+                            include("captcha.php");
+                            $_SESSION['captcha'] = captcha();
+                            echo '<img src="' . $_SESSION['captcha']['image_src'] . '" alt="CAPTCHA" />';
+                            
+                            
+                            ?>
+                            
+                            </label></div>
+                            <div class="input-field-login icon password-container">
+                                <input name="txtImagen" id="pass" placeholder="Ingrese la imagen." class="std_textbox" type="password" tabindex="3"  required>
+                            </div>
+                            
                             <div style="width: 285px;">
                                 <div class="login-btn">
                                     <button name="login" type="submit" id="login_submit" tabindex="3">Acceder</button>

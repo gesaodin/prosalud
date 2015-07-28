@@ -34,6 +34,11 @@ class MExamenes extends CI_Model {
    */
   function Buscar(){
   } 
+  
+  
+  function Listar(){
+  	$sConsulta = "SELECT * FROM td_examenen_lista INNER JOIN td_proveedores ON td_examenen_lista.prov=td_proveedores.oid";
+  }
 	
 	
 	

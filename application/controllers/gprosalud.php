@@ -1943,6 +1943,25 @@ class GProsalud extends CI_Controller {
 		echo $lst ['json'];
 	}
 	
+
+	
+	function crudLab(){
+		if (isset ( $_SESSION ['usuario'] )) {
+			$data ['usr'] = $this->CUsuarios->Usuarios_Conectados_Chat ( $_SESSION ['usuario'] );
+			$data ['menu'] = $this->CMenu->Generar ();
+			$this->load->view ( 'configurar/crudlab', $data );
+		} else {
+			$this->logout ();
+		}
+	}
+	
+	function lstLaboratorio(){
+		$this->load->model ( 'grupo/mexamenes', 'MExamen' );
+		$lst = $this->MExamen->lst ();
+		
+		echo $lst ['json'];
+	}
+	
 	/**
 	 * Fin de la session
 	 */
@@ -1956,34 +1975,7 @@ class GProsalud extends CI_Controller {
 		session_destroy ();
 	}
 	
-	/**
-	 * Chat de Conversaciones
-	 * 
-	 * @param
-	 *        	string
-	 * @return bool
-	 */
-	function Chat($estado) {
-		$this->load->model ( 'chat/cchat', 'CChat' );
-		if ($estado == "chatheartbeat") {
-			$this->CChat->chatHeartbeat ();
-		}
-		if ($estado == "sendchat") {
-			$this->CChat->sendChat ();
-		}
-		if ($estado == "closechat") {
-			$this->CChat->closeChat ();
-		}
-		if ($estado == "startchatsession") {
-			$this->CChat->startChatSession ();
-		}
-		if (! isset ( $_SESSION ['chatHistory'] )) {
-			$_SESSION ['chatHistory'] = array ();
-		}
-		if (! isset ( $_SESSION ['openChatBoxes'] )) {
-			$_SESSION ['openChatBoxes'] = array ();
-		}
-	}
+
 	function EstadisticasServicios() {
 		$this->load->model ( 'grupo/mnomina', 'MNomina' );
 		$lst = $this->MNomina->EstadisticasServicios ( $_POST );

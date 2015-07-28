@@ -2,7 +2,7 @@
  * @pakacge system.js.views
  */
 $( function() {
-	Pendientes(3,'ReportesR');
+	Pendientes(0,'Reportes');	
 
 	var dates = $( "#fecha_desde, #fecha_hasta" ).datepicker({
 		showOn: "button",
@@ -45,23 +45,7 @@ $( function() {
 
 function Pendientes(estado, div) {
 	
-	strUrl_Proceso = sUrlP + "Listar_Pendientes/" + estado;
-	$.ajax({
-		url : strUrl_Proceso,
-		dataType : "json",
-		success : function(oEsq) {
-			Grid = new TGrid(oEsq, div, '');
-			Grid.SetXls(false);
-			Grid.SetNumeracion(true);
-			Grid.SetName(div);
-			Grid.SetDetalle();
-			Grid.Generar();
-		}
-	});
-}
-
-function Obetener(div) {	
-	strUrl_Proceso = sUrlP + "Listar_Compromiso";
+	strUrl_Proceso = sUrlP + "lstLaboratorio";
 	$.ajax({
 		url : strUrl_Proceso,
 		dataType : "json",
@@ -77,49 +61,3 @@ function Obetener(div) {
 }
 
 
-function Imprimir(cod,ced){
-	Url = sUrlP + "Imprimir_ReembolsoF/" + cod;
-	window.open(Url, "reembolso", "toolbar=0,location=1,menubar=0,scrollbars=1,resizable=1,width=800,height=600");
-}
-function ImprimirS(cod,ced){
-	Url = sUrlP + "Imprimir_Reembolso/" + cod;
-	window.open(Url, "reembolso", "toolbar=0,location=1,menubar=0,scrollbars=1,resizable=1,width=800,height=600");
-}
-function Retener(cod,ced){
-	strUrl_Proceso = sUrlP + "Retener_Reembolso/"+ cod  + "/" + ced;	
-	$.ajax({
-		url : strUrl_Proceso,
-		success : function(oHtml) {
-			alert(oHtml);
-		}
-	});
-}
-
-function Confirmar(cod,ced){
-	strUrl_Proceso = sUrlP + "Confirmar_Reembolso/"+ cod  + "/" + ced;	
-	$.ajax({
-		url : strUrl_Proceso,
-		success : function(oHtml) {
-			alert(oHtml);
-		}
-	});
-}
-
-function Anular(cod,ced){
-	strUrl_Proceso = sUrlP + "Anular_Reembolso/"+ cod  + "/" + ced;	
-	$.ajax({
-		url : strUrl_Proceso,
-		success : function(oHtml) {
-			alert(oHtml);
-		}
-	});
-}
-function Reversar(cod,ced){
-	strUrl_Proceso = sUrlP + "Reversar_Reembolso/"+ cod  + "/" + ced;	
-	$.ajax({
-		url : strUrl_Proceso,
-		success : function(oHtml) {
-			alert(oHtml);
-		}
-	});
-}
